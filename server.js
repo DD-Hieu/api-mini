@@ -9,6 +9,8 @@ const courses = [
     { id : 3, name : 'React Native'},
 ]
 
+
+//Router
 app.get('/', (req, res) => {
   res.send('Hello World!')
   });
@@ -17,7 +19,6 @@ app.get('/api/courses', (req, res) => {
     res.send(courses)
   });
   
-
 app.get('/api/courses/:id', (req, res) => {
     const course = courses.find(courses => courses.id === parseInt(req.params.id))
     if(!course) res.status(404).send('ID not exist')
@@ -58,6 +59,8 @@ app.delete('/api/courses/delete/:id', (req, res) => {
     }));
   });
 
+
+  
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
