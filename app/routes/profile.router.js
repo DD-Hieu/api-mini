@@ -10,7 +10,7 @@
 
 // module.exports = router;
 
-module.exports = function(app){
+module.exports = function(router){
     
 var profileController = require('../controllers/profile.comtroller');
 

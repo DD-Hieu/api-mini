@@ -53,11 +53,8 @@ app.use(express.json());
 //     }));
 //   });
 
-var homeRouter = require('./app/routes/home.router');
-var profilRouter = require('.app/routes/profile.router');
-
-app.use('/',homeRouter);
-app.use('/',profilRouter);
+require('./app/routes/home.router')(app);
+require('.app/routes/profile.router')(app);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
