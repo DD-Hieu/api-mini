@@ -1,13 +1,33 @@
-const express = require('express')
+const express = require('express');
+const res = require('express/lib/response');
 const app = express()
 
 app.use(express.json());
 
-const courses = [
-    { id : 1, name : 'NodeJs'},
-    { id : 2, name : 'ReactJs'},
-    { id : 3, name : 'React Native'},
-]
+// const mysql = require('mysql');
+// const con = mysql.createConnection({
+//       host:'37.59.55.185',
+//       user:'m6fSwgfB5H',
+//       password:'ang5dMJPuu',
+//       port: 3306,
+//       database:'m6fSwgfB5H'
+// });
+
+
+// con.connect((err)=>{
+//   if(err) throw err;
+//   con.query("SELECT * FROM Account",(err, rows, cols)=>{
+//     if(err) throw err
+//     const objs=[];
+//     for(const i=0; i<rows.length; i++)
+//     {
+//       objs.push({ID_Login: rows[i].ID_Login});
+//       objs.push({Password: rows[i].Password});
+//     }
+//     con.end();
+//     res.end(JSON.stringify(obs));
+//   });
+// });
 
 
 //Router

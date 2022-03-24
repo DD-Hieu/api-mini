@@ -1,3 +1,5 @@
+Host: 37.59.55.185
+
 Username: m6fSwgfB5H
 
 Database name: m6fSwgfB5H
