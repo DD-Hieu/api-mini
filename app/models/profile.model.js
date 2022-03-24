@@ -31,4 +31,8 @@ Profile.remove = function(id, result){
     result("Delete id " + id + " success");
 }
 
+Profile.update = function(data, result){
+    result(data);
+}
+
 module.exports = Profile;
