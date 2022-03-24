@@ -18,8 +18,15 @@ Profile.get_all = function(result){
     });
 }
 
-Profile.getById = function(id){
-    var data = {"id": id, "name":"Profile name 1"};
+Profile.getById = function(id, result){
+    db.query("SELECT * FROM Profile WHERE id = ?", id, function(err, profile){
+        if(err){
+            result(null);
+        }
+        else {
+            result(profile);
+        }
+    });
     return data;
 }
 
