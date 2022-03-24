@@ -17,3 +17,18 @@ Profile.get_all = function(result){
         }
     });
 }
+
+Profile.getById = function(id){
+    var data = {"id": id, "name":"Profile name 1"};
+    return data;
+}
+
+Profile.create = function(data, result){
+    result(data);
+}
+
+Profile.remove = function(id, result){
+    result("Delete id " + id + " success");
+}
+
+module.exports = Profile;

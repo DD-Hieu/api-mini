@@ -1,7 +1,10 @@
 const express = require('express');
 const res = require('express/lib/response');
 const app = express();
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.json());
 
 //Router
