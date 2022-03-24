@@ -1,0 +1,9 @@
+Username: m6fSwgfB5H
+
+Database name: m6fSwgfB5H
+
+Password: ang5dMJPuu
+
+Server: remotemysql.com
+
+Port: 3306
