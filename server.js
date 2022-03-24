@@ -54,7 +54,7 @@ app.use(express.json());
 //   });
 
 require('./app/routes/home.router')(app);
-require('.app/routes/profile.router')(app);
+require('./app/routes/profile.router')(app);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

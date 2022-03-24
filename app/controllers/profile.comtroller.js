@@ -1,7 +1,13 @@
+var Profile = require('../models/profile.model');
 exports.list = function(req, res){
-    res.sendFile(__dirname.replace('app\\controllers', '') +'/index.html');
+    Profile.get_all(function(data){
+        
+    res.send({result: data});
+    });
 }
 
 exports.detail = function(req, res){
-    res.send('ID');
+    var data = Profile.getById(req.params.id);
+
+    req.send({result: data});
 };
