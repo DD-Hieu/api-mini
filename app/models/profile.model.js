@@ -4,7 +4,7 @@ const Profile = function(profile){
     this.Name = profile.Name;
     this.Sexual = profile.Sexual;
     this.Age = profile.Age;
-    history.Phone = profile.Phone;
+    this.Phone = profile.Phone;
 }
 
 Profile.get_all = function(result){
@@ -19,7 +19,7 @@ Profile.get_all = function(result){
 }
 
 Profile.getById = function(id, result){
-    db.query("SELECT * FROM Profile WHERE id = ?", id, function(err, profile){
+    db.query("SELECT * FROM Profile WHERE ID = ?", id, function(err, profile){
         if(err || profile.length == 0){
             result(null);
         }
@@ -41,12 +41,12 @@ Profile.create = function(data, result){
 }
 
 Profile.remove = function(id, result){
-    db.query("DELETE FROM Profile WHERE id = ?", id, function(err, profile){
+    db.query("DELETE FROM Profile WHERE ID = ?", id, function(err, profile){
         if(err){
             result(null);
         }
         else {
-            result("Success in delete profile id " + id);
+            result("Success in delete profile ID " + id);
         }
     });
 }
