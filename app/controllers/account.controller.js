@@ -36,10 +36,13 @@ exports.update_account = function(req, res){
 exports.login = function(req, res){
     var data = req.body;
     Account.check_login(data, async function(respnse){
+
+        // Give token
         // if(respnse){
         //     const _token = await JWT.make(respnse);
         //     res.send({result: _token});
         // }
+        
         res.send({result: respnse});
     });
 }
