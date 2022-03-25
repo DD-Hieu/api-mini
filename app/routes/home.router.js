@@ -29,8 +29,13 @@ router.get('/token', async function(req, res){
     res.send({token: _token});
  });
  router.get('/check_token', async function(req, res){
-    var _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIn0sImlhdCI6MTY0ODE3OTY5NywiZXhwIjoxNjQ4MTgzMjk3fQ.cny9s5YCy8QLFjEfp0Soh0F_yZLa4Htou19u-jv4nnM"
+    try{
+        var _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIn0sImlhdCI6MTY0ODE3OTY5NywiZXhwIjoxNjQ4MTgzMjk3fQ.cny9s5YCy8QLFjEfp0Soh0F_yZLa4Htou19u-jv4nnM"
     const data = await JWT.check(_token);
     res.send({data: data});
+    }
+    catch(err) {
+    res.send({data: "Access denied"});
+    }
  });
 };
