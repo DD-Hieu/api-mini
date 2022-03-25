@@ -35,7 +35,7 @@ router.get('/token', async function(req, res){
     res.send({data: data});
     }
     catch(err) {
-    res.send({data: "Access denied"});
+    res.send({data: "Access denied (Wrong token)"});
     }
  });
 };

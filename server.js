@@ -2,6 +2,7 @@ const express = require('express');
 const res = require('express/lib/response');
 const app = express();
 const bodyParser = require('body-parser');
+const _AuthMiddleWare = require('./app/common/_AuthMiddleWare');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -57,6 +58,7 @@ app.use(express.json());
 //   });
 
 require('./app/routes/home.router')(app);
+app.use(_AuthMiddleWare.isAuth); //Các router phía dưới sẽ bị check token
 require('./app/routes/profile.router')(app);
 
 const port = process.env.PORT || 3000;
