@@ -14,7 +14,18 @@ module.exports = function(router){
 
 var homeController = require('../controllers/home.comtroller');
 
+var JWT = require('../common/_JWT')
+
 router.get('/', homeController.home);
 
 router.get('/about', homeController.about);
-}
+
+router.get('/token', async function(req, res){
+    var  user = {
+        name:"admin",
+        email:"admin@gmail.com",
+    }
+    const _token = await JWT.make(user);
+    res.send({token: _token});
+})
+};

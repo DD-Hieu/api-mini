@@ -19,5 +19,9 @@ let make = function(user){
     });
 }
 
-
 //check => xác thực mã đúng, sai, hết hạn
+
+
+module.exports = {
+    make: make,
+};
