@@ -20,26 +20,46 @@ Profile.get_all = function(result){
 
 Profile.getById = function(id, result){
     db.query("SELECT * FROM Profile WHERE id = ?", id, function(err, profile){
+        if(err || profile.length == 0){
+            result(null);
+        }
+        else {
+            result(profile[0]);
+        }
+    });
+}
+
+Profile.create = function(data, result){
+    db.query("INSERT into Profile SET ?", data, function(err, profile){
         if(err){
             result(null);
         }
         else {
-            result(profile);
+            result({id: profile.insertId, ...data});
         }
-    });
-    return data;
-}
-
-Profile.create = function(data, result){
-    result(data);
+    })
 }
 
 Profile.remove = function(id, result){
-    result("Delete id " + id + " success");
+    db.query("DELETE FROM Profile WHERE id = ?", id, function(err, profile){
+        if(err){
+            result(null);
+        }
+        else {
+            result("Success in delete profile id " + id);
+        }
+    });
 }
 
 Profile.update = function(data, result){
-    result(data);
+    db.query("UPDATE Profile SET Name=?, Sexual=?, Age=?, Phone=? WHERE ID=?", [data.Name, data.Sexual, data.Age, data.Phone, data.ID], function(err, profile){
+        if(err){
+            result(null);
+        }
+        else {
+            result(data);
+        }
+    })
 }
 
 module.exports = Profile;

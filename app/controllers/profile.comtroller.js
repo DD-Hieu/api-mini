@@ -7,7 +7,7 @@ exports.list = function(req, res){
 
 exports.detail = function(req, res){
     Profile.getById(req.params.id, function (respnse){
-        req.send({result: respnse});
+        res.send({result: respnse});
     });  
 }
 
