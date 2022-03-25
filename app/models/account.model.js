@@ -3,7 +3,6 @@ const Account = function(account){
     this.ID_Account = account.ID_Account;
     this.ID_Login = account.ID_Login;
     this.Password = account.Password;
-    this.ID = account.ID;
 }
 
 Account.get_all = function(result){
@@ -51,7 +50,7 @@ Account.remove = function(id, result){
 }
 
 Account.update = function(data, result){
-    db.query("UPDATE Account SET ID_Login=?, Password=?, ID=? WHERE ID_Account=?", [data.ID_Login, data.Password, data.ID, data.ID_Account], function(err, account){
+    db.query("UPDATE Account SET ID_Login=?, Password=? WHERE ID_Account=?", [data.ID_Login, data.Password, data.ID_Account], function(err, account){
         if(err){
             result(null);
         }

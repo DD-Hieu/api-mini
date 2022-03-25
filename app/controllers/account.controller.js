@@ -37,12 +37,12 @@ exports.login = function(req, res){
     var data = req.body;
     Account.check_login(data, async function(respnse){
 
-        // Give token
-        // if(respnse){
-        //     const _token = await JWT.make(respnse);
-        //     res.send({result: _token});
-        // }
-        
+        //Give token
+        if(respnse){
+            const _token = await JWT.make(respnse);
+            console.log("tokenn",_token)
+            return res.status(200).json({result: _token});
+        }
         res.send({result: respnse});
     });
 }
