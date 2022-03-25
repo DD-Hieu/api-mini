@@ -40,9 +40,11 @@ exports.login = function(req, res){
         //Give token
         if(respnse){
             const _token = await JWT.make(respnse);
-            console.log("tokenn",_token)
-            return res.status(200).json({result: _token});
+            console.log("token",_token)
+            res.send({result: _token, status: true});
         }
-        res.send({result: respnse});
+        else{
+            res.send({result: '', status: false});
+        }
     });
 }
