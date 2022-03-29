@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.json());
 
-//Router
+//Basic-temp Router
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
 //   });
